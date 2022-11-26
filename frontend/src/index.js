@@ -12,11 +12,13 @@ import Admin from './routes/Admin'
 import Member from './routes/Member'
 import Nutritionist from './routes/Nutritionist'
 import Trainer from './routes/Trainer'
+import Login from './pages/Login'
+import Header from './components/Header'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Root />}>
+    <Route path="/" element={<Login />}>
       <Route path="admin" element={<Admin />} />
       <Route path="member" element={<Member />} />
       <Route path="nutritionist" element={<Nutritionist />} />
@@ -27,6 +29,7 @@ const router = createBrowserRouter(
 
 root.render(
   <React.StrictMode>
+    <Header />
     <RouterProvider router={router} />
     <App />
   </React.StrictMode>
