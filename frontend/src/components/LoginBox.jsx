@@ -1,14 +1,41 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const LoginBox = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
+  useEffect(() => {
+
+  }, [])
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    getUser()
+
+  }
+
+  let getUser = async () => {
+    let response = await fetch('/api/users/' + username)
+    let data = await response.json()
+    console.log(data)
+    if (data.accType == 'A' || data.accType == 'a') {
+      console.log('admin user')
+    }
+    if (data.accType == 'M' || data.accType == 'm') {
+      console.log('member user')
+    }
+    if (data.accType == 'T' || data.accType == 't') {
+      console.log('trainer user')
+    }
+    if (data.accType == 'N' || data.accType == 'n') {
+      console.log('nutritionist user')
+    }
+
     
   }
+
   return (
     <>
         <div className='h-50 bg-black p-5 rounded'>
