@@ -1,39 +1,37 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const LoginBox = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-
-  useEffect(() => {
-
-  }, [])
-
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    getUser()
-
+    const data = await getUser()
+    if (data.username !== username || data.password !== password) {
+      alert('Invalid account type or login info. Please try again.')
+    }
+    if (data.accType === 'A' || data.accType === 'a') {
+      console.log('admin user')
+      navigate('/admin')
+    }
+    if (data.accType === 'M' || data.accType === 'm') {
+      console.log('member user')
+    }
+    if (data.accType === 'T' || data.accType === 't') {
+      console.log('trainer user')
+    }
+    if (data.accType === 'N' || data.accType === 'n') {
+      console.log('nutritionist user')
+    }
   }
 
   let getUser = async () => {
     let response = await fetch('/api/users/' + username)
     let data = await response.json()
-    console.log(data)
-    if (data.accType == 'A' || data.accType == 'a') {
-      console.log('admin user')
-    }
-    if (data.accType == 'M' || data.accType == 'm') {
-      console.log('member user')
-    }
-    if (data.accType == 'T' || data.accType == 't') {
-      console.log('trainer user')
-    }
-    if (data.accType == 'N' || data.accType == 'n') {
-      console.log('nutritionist user')
-    }
-
-    
+    return data    
   }
 
   return (

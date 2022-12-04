@@ -6,6 +6,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   Route,
+  Routes,
   createRoutesFromElements,
 } from "react-router-dom";
 import Admin from './routes/Admin'
@@ -18,12 +19,13 @@ import Header from './components/Header'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Login />}>
-      <Route path="admin" element={<Admin />} />
-      <Route path="member" element={<Member />} />
-      <Route path="nutritionist" element={<Nutritionist />} />
-      <Route path="trainer" element={<Trainer />} />
-    </Route>
+    <>
+        <Route path="/" element={<Login />}/>
+        <Route path="admin" element={<Admin />} />
+        <Route path="member" element={<Member />} />
+        <Route path="nutritionist" element={<Nutritionist />} />
+        <Route path="trainer" element={<Trainer />} />
+    </>
   )
 );
 
