@@ -20,7 +20,6 @@ export const Admin = () => {
 
   useEffect(() => {
     const data = getUsers()
-    console.log(users)
   }, [])
 
   let getUsers = async () => {
@@ -33,7 +32,7 @@ export const Admin = () => {
     <>  
       <table>
         <tr>  
-          <th className="border-2 border-gray-900 p-1">ID</th>
+          <th className="border-2 border-gray-900 p-1"><div contenteditable="true">ID</div></th>
           <th className="border-2 border-gray-900 p-1">Username</th>
           <th className="border-2 border-gray-900 p-1"> Password</th>
           <th className="border-2 border-gray-900 p-1">Email</th>
@@ -43,6 +42,8 @@ export const Admin = () => {
           <th className="border-2 border-gray-900 p-1">Last name</th>
           <th className="border-2 border-gray-900 p-1">Date created</th>
           <th className="border-2 border-gray-900 p-1">Account type</th>
+          <th className="border-2 border-gray-900 p-1">Edit</th>
+          <th className="border-2 border-gray-900 p-1">Delete</th>
         </tr>
         {users.map((user, index) => (
           <UserRow key={index} user={user} />
