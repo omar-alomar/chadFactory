@@ -53,7 +53,7 @@ const UserRow = (user) => {
       </>
     )
   }
-  
+
   if (!enableEdit) {
     return (
       <>
@@ -77,16 +77,16 @@ const UserRow = (user) => {
     return (
       <>
         <tr>  
-          <th className="border-2 bg-yellow-500 border-gray-900 p-1" ><textarea className="resize-none w-full h-full bg-yellow-500">{user.user.id}</textarea></th>
-          <th className="border-2 bg-yellow-500 border-gray-900 p-1" ><textarea onChange={(e) => {setUsername(e.target.value)}} className="resize-none bg-yellow-500 w-full h-full">{user.user.username}</textarea></th>
-          <th className="border-2 bg-yellow-500 border-gray-900 p-1" ><textarea onChange={(e) => {setPassword(e.target.value)}} className="resize-none bg-yellow-500 w-full h-full">{user.user.password}</textarea></th>
-          <th className="border-2 bg-yellow-500 border-gray-900 p-1" ><textarea onChange={(e) => {setEmail(e.target.value)}} className="resize-none bg-yellow-500 w-full h-full">{user.user.email}</textarea></th>
-          <th className="border-2 bg-yellow-500 border-gray-900 p-1" ><textarea onChange={(e) => {setAddress(e.target.value)}} className="resize-none bg-yellow-500 w-full h-full">{user.user.address}</textarea></th>
-          <th className="border-2 bg-yellow-500 border-gray-900 p-1" ><textarea onChange={(e) => {setPhone(e.target.value)}} className="resize-none bg-yellow-500 w-full h-full">{user.user.phone}</textarea></th>
-          <th className="border-2 bg-yellow-500 border-gray-900 p-1" ><textarea onChange={(e) => {setFname(e.target.value)}} className="resize-none bg-yellow-500 w-full h-full">{user.user.fname}</textarea></th>
-          <th className="border-2 bg-yellow-500 border-gray-900 p-1" ><textarea onChange={(e) => {setLname(e.target.value)}} className="resize-none bg-yellow-500 w-full h-full">{user.user.lname}</textarea></th>
-          <th className="border-2 bg-yellow-500 border-gray-900 p-1" ><textarea readOnly="true" className="resize-none bg-yellow-500 w-full h-full">{user.user.accType}</textarea></th>
-          <th className="border-2 bg-yellow-500 border-gray-900 p-1" ><textarea className="resize-none bg-yellow-500 w-full h-full">{user.user.created}</textarea></th>
+          <th className="border-2 bg-yellow-500 border-gray-900 p-1"><textarea className="resize-none w-full h-full bg-yellow-500">{user.user.id}</textarea></th>
+          <th className="border-2 bg-yellow-500 border-gray-900 p-1"><textarea onChange={(e) => {setUsername(e.target.value)}} className="resize-none bg-yellow-500 w-full h-full">{user.user.username}</textarea></th>
+          <th className="border-2 bg-yellow-500 border-gray-900 p-1"><textarea onChange={(e) => {setPassword(e.target.value)}} className="resize-none bg-yellow-500 w-full h-full">{user.user.password}</textarea></th>
+          <th className="border-2 bg-yellow-500 border-gray-900 p-1"><textarea onChange={(e) => {setEmail(e.target.value)}} className="resize-none bg-yellow-500 w-full h-full">{user.user.email}</textarea></th>
+          <th className="border-2 bg-yellow-500 border-gray-900 p-1"><textarea onChange={(e) => {setAddress(e.target.value)}} className="resize-none bg-yellow-500 w-full h-full">{user.user.address}</textarea></th>
+          <th className="border-2 bg-yellow-500 border-gray-900 p-1"><textarea onChange={(e) => {setPhone(e.target.value)}} className="resize-none bg-yellow-500 w-full h-full">{user.user.phone}</textarea></th>
+          <th className="border-2 bg-yellow-500 border-gray-900 p-1"><textarea onChange={(e) => {setFname(e.target.value)}} className="resize-none bg-yellow-500 w-full h-full">{user.user.fname}</textarea></th>
+          <th className="border-2 bg-yellow-500 border-gray-900 p-1"><textarea onChange={(e) => {setLname(e.target.value)}} className="resize-none bg-yellow-500 w-full h-full">{user.user.lname}</textarea></th>
+          <th className="border-2 bg-yellow-500 border-gray-900 p-1"><textarea readOnly="true" className="resize-none bg-yellow-500 w-full h-full">{user.user.accType}</textarea></th>
+          <th className="border-2 bg-yellow-500 border-gray-900 p-1"><textarea className="resize-none bg-yellow-500 w-full h-full">{user.user.created}</textarea></th>
           <th className="border-2 bg-green-500 border-gray-900 p-1"><div className="cursor-pointer" onClick={submitEdit}>Submit</div></th>
           <th className="border-2 bg-red-500 border-gray-900 p-1"><div className="cursor-pointer">Delete</div></th>
         </tr>

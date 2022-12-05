@@ -7,6 +7,7 @@ import ManageClients from '../pages/admin/ManageClients'
 import ManageNutritionists from '../pages/admin/ManageNutritionists'
 import ManageTrainers from '../pages/admin/ManageTrainers'
 import ManageClasses from '../pages/admin/ManageClasses'
+import AddButton from '../components/AddButton'
 
 // old routes
 {/* <Route path='/admin/dashboard' component={<ADashboard />} />
@@ -29,27 +30,31 @@ export const Admin = () => {
   }
 
   return (
-    <>  
-      <table>
-        <tr>  
-          <th className="border-2 border-gray-900 p-1"><div contenteditable="true">ID</div></th>
-          <th className="border-2 border-gray-900 p-1">Username</th>
-          <th className="border-2 border-gray-900 p-1"> Password</th>
-          <th className="border-2 border-gray-900 p-1">Email</th>
-          <th className="border-2 border-gray-900 p-1">Address</th>
-          <th className="border-2 border-gray-900 p-1">Phone</th>
-          <th className="border-2 border-gray-900 p-1">First name</th>
-          <th className="border-2 border-gray-900 p-1">Last name</th>
-          <th className="border-2 border-gray-900 p-1">Date created</th>
-          <th className="border-2 border-gray-900 p-1">Account type</th>
-          <th className="border-2 border-gray-900 p-1">Edit</th>
-          <th className="border-2 border-gray-900 p-1">Delete</th>
-        </tr>
-        {users.map((user, index) => (
-          <UserRow key={index} user={user} />
-        ))}
-        {console.log(users)}
-      </table>
+    <> 
+      <div className="h-screen">
+        <h1 className="p-2 h-16 text-5xl">Welcome, admin.</h1>
+        <table className="m-2 mb-6">
+          <tr>  
+            <th className="border-2 border-gray-900 p-1"><div contenteditable="true">ID</div></th>
+            <th className="border-2 border-gray-900 p-1">Username</th>
+            <th className="border-2 border-gray-900 p-1"> Password</th>
+            <th className="border-2 border-gray-900 p-1">Email</th>
+            <th className="border-2 border-gray-900 p-1">Address</th>
+            <th className="border-2 border-gray-900 p-1">Phone</th>
+            <th className="border-2 border-gray-900 p-1">First name</th>
+            <th className="border-2 border-gray-900 p-1">Last name</th>
+            <th className="border-2 border-gray-900 p-1">Date created</th>
+            <th className="border-2 border-gray-900 p-1">Account type</th>
+            <th className="border-2 border-gray-900 p-1">Edit</th>
+            <th className="border-2 border-gray-900 p-1">Delete</th>
+          </tr>
+          {users.map((user, index) => (
+            <UserRow key={index} user={user} />
+          ))}
+          {console.log(users)}
+        </table>
+        <AddButton/>
+      </div>
     </>
   )
 }

@@ -29,7 +29,7 @@ const LoginBox = () => {
   }
 
   let getUser = async () => {
-    let response = await fetch('/api/users/' + username)
+    let response = await fetch('/api/login/' + username)
     let data = await response.json()
     return data    
   }

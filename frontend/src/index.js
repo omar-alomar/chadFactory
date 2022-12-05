@@ -15,6 +15,7 @@ import Nutritionist from './routes/Nutritionist'
 import Trainer from './routes/Trainer'
 import Login from './pages/Login'
 import Header from './components/Header'
+import NewUser from './routes/NewUser';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
     <>
         <Route path="/" element={<Login />}/>
         <Route path="admin" element={<Admin />} />
+        <Route path="admin/newUser" element={<NewUser />} />
         <Route path="member" element={<Member />} />
         <Route path="nutritionist" element={<Nutritionist />} />
         <Route path="trainer" element={<Trainer />} />

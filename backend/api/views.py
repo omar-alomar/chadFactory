@@ -100,3 +100,25 @@ def deleteUser(request, pk):
     user = User.objects.get(id=pk)
     user.delete()
     return Response('User deleted successfully.')
+
+@api_view(['GET'])
+def login(request, pk):
+    user = User.objects.get(username=pk)
+    serializer = UserSerializer(user, many=False)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def createUser(request):
+    data = request.data
+    user = User.objects.create(
+        username=data['username'],
+        password=data['password'],
+        email=data['email'],
+        address=data['address'],
+        phone=data['phone'],
+        fname=data['fname'],
+        lname=data['lname'],
+        accType=data['accType']
+    )
+    serializer = UserSerializer(user, many=False)
+    return Response(serializer.data)
