@@ -1,9 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 
 
 const NewUser = () => {
-
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
@@ -12,6 +13,9 @@ const NewUser = () => {
     const [fname, setFname] = useState()
     const [lname, setLname] = useState()
     const [accType, setAccType] = useState()
+
+    const navigate = useNavigate()
+
 
     let createUser = async () => {
         fetch(`/api/users/new/`, {
@@ -34,6 +38,8 @@ const NewUser = () => {
     const handleSubmit = e => {
         e.preventDefault()
         createUser()
+        navigate('/admin')
+
     }
   return (
     <>

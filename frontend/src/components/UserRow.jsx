@@ -88,7 +88,7 @@ const UserRow = (user) => {
           <th className="border-2 bg-yellow-500 border-gray-900 p-1"><textarea readOnly="true" className="resize-none bg-yellow-500 w-full h-full">{user.user.accType}</textarea></th>
           <th className="border-2 bg-yellow-500 border-gray-900 p-1"><textarea className="resize-none bg-yellow-500 w-full h-full">{user.user.created}</textarea></th>
           <th className="border-2 bg-green-500 border-gray-900 p-1"><div className="cursor-pointer" onClick={submitEdit}>Submit</div></th>
-          <th className="border-2 bg-red-500 border-gray-900 p-1"><div className="cursor-pointer">Delete</div></th>
+          <th className="border-2 bg-red-500 border-gray-900 p-1"><div className="cursor-pointer" onClick={deleteUser}>Delete</div></th>
         </tr>
       </>
     )
