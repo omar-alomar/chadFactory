@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import User
-from .serializers import UserSerializer
+from .models import *
+from .serializers import *
 
 # Create your views here.
 
@@ -110,15 +110,40 @@ def login(request, pk):
 @api_view(['POST'])
 def createUser(request):
     data = request.data
-    user = User.objects.create(
-        username=data['username'],
-        password=data['password'],
-        email=data['email'],
-        address=data['address'],
-        phone=data['phone'],
-        fname=data['fname'],
-        lname=data['lname'],
-        accType=data['accType']
-    )
-    serializer = UserSerializer(user, many=False)
+    if (data['accType'] == 'T'):
+        trainer = Trainer.objects.create(
+            username=data['username'],
+            password=data['password'],
+            email=data['email'],
+            address=data['address'],
+            phone=data['phone'],
+            fname=data['fname'],
+            lname=data['lname'],
+            accType=data['accType'],
+            ssn=data['ssn'],
+            salary=data['salary']
+        )
+        serializer = TrainerSerializer(trainer, many=False)
+
+    elif (data['accType'] == 'N'):
+        nutritionist = Nutritionist.objects.create(
+            username=data['username'],
+            password=data['password'],
+            email=data['email'],
+            address=data['address'],
+            phone=data['phone'],
+            fname=data['fname'],
+            lname=data['lname'],
+            accType=data['accType'],
+            ssn=data['ssn'],
+            salary=data['salary']
+        )
+        serializer = NutritionistSerializer(nutritionist, many=False)
+    
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def getTier(request, pk):
+    tier = Tier.objects.get(id=pk)
+    serializer = TierSerializer(tier, many=False)
     return Response(serializer.data)
