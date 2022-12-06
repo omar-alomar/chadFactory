@@ -139,6 +139,22 @@ def createUser(request):
             salary=data['salary']
         )
         serializer = NutritionistSerializer(nutritionist, many=False)
+
+    elif (data['accType'] == 'M'):
+        member = Member.objects.create(
+            username=data['username'],
+            password=data['password'],
+            email=data['email'],
+            address=data['address'],
+            phone=data['phone'],
+            fname=data['fname'],
+            lname=data['lname'],
+            accType=data['accType'],
+            tier=data['tier'],
+            trainerId=data['trainerId'],
+            nutritionistId=data['nutritionistId'],
+        )
+        serializer = MemberSerializer(member, many=False)
     
     return Response(serializer.data)
 
@@ -146,4 +162,35 @@ def createUser(request):
 def getTier(request, pk):
     tier = Tier.objects.get(id=pk)
     serializer = TierSerializer(tier, many=False)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def getMembers(request):
+    members = Member.objects.all()
+    serializer = MemberSerializer(members, many=True)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def createMember(request):
+    data = request.data
+    member = Member.objects.create(
+        username=data['username'],
+        password=data['password'],
+        email=data['email'],
+        address=data['address'],
+        phone=data['phone'],
+        fname=data['fname'],
+        lname=data['lname'],
+        accType=data['accType'],
+        tier=data['tier'],
+        trainerId=data['trainerId'],
+        nutritionistId=data['nutritionistId'],
+    )
+    serializer = MemberSerializer(member, many=False)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def getNutritionists(request):
+    nutritionists = Nutritionist.objects.all()
+    serializer = NutritionistSerializer(nutritionists, many=True)
     return Response(serializer.data)

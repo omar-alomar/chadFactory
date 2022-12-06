@@ -9,13 +9,13 @@ import {
   Routes,
   createRoutesFromElements,
 } from "react-router-dom";
-import Admin from './routes/Admin'
-import Member from './routes/Member'
-import Nutritionist from './routes/Nutritionist'
-import Trainer from './routes/Trainer'
+import Admin from './pages/Admin'
+import Member from './pages/Member'
+import Nutritionist from './pages/Nutritionist'
+import Trainer from './pages/Trainer'
 import Login from './pages/Login'
 import Header from './components/Header'
-import NewUser from './routes/NewUser';
+import NewUser from './pages/NewUser';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter(

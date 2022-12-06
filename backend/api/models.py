@@ -17,13 +17,22 @@ class Trainer(User):
     ssn = models.TextField(max_length=30, unique=True)
     salary = models.FloatField(unique=False, null=True)
 
+    def __str__(self):
+      return str(self.id)
+
 
 class Nutritionist(User):
     ssn = models.TextField(max_length=30, unique=True)
     salary = models.FloatField(unique=False, null=True)
 
+    def __str__(self):
+      return str(self.id)
+
 class Member(User):
-    ssn = models.TextField(max_length=30, unique=True)
+    tier = models.IntegerField(null=True)
+    trainerId = models.ForeignKey(Trainer, null=True, on_delete=models.SET_NULL)
+    nutritionistId = models.ForeignKey(Nutritionist, null=True, on_delete=models.SET_NULL)
+
 class Tier(models.Model):
     tier = models.IntegerField(unique=True)
     monthlyFee = models.FloatField(unique=False)
